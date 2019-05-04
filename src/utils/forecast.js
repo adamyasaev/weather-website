@@ -9,7 +9,11 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Please specify a valid location', undefined)
         } else {
-            callback(undefined, `${body.daily.data[0].summary}. It is currently ${body.currently.temperature} degrees outside. There is a ${body.currently.precipProbability}% chance of rain.`)
+            callback(undefined, `${body.daily.data[0].summary}. 
+            It is currently ${body.currently.temperature} degrees outside. 
+            There is a ${body.currently.precipProbability}% chance of rain.
+            The highest temperature today was ${body.daily.data[0].temperatureHigh} degrees.
+            The lowest temperature today was ${body.daily.data[0].temperatureLow} degrees.`)
         }
     })
 }
